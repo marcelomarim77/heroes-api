@@ -10,10 +10,10 @@ import { HeroesRepository } from './repositories/heroes-repository';
     TypeOrmModule.forRootAsync({
       useFactory: async (): Promise<TypeOrmModuleOptions> => ({
         type: 'postgres',
-        host: 'localhost', //getEnviroment('DB_HOST', true),
-        username: 'postgres', //getEnviroment('DB_USER', true),
-        password: 'Mapego110713@', //getEnviroment('DB_PASS', true),
-        database: 'teste', //getEnviroment('DB_NAME', true),
+        host: 'localhost',
+        username: 'postgres',
+        password: 'Mapego110713@',
+        database: 'teste',
         entities: ['dist/**/*.entity{.ts,.js}'],
         synchronize: false
       })
