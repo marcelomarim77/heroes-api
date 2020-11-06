@@ -25,8 +25,13 @@ export class AppService {
     return result;
   };
 
-  async updateHero(heroToUpdate: Heroes) {
-    const result = await this.heroesRepository.updateHero(heroToUpdate);
+  async updateHero(hero: Heroes) {
+    const result = await this.heroesRepository.updateHero(hero);
+    return result;
+  };
+
+  async createHero(hero: Heroes) {
+    const result = await this.heroesRepository.createHero(hero);
     return result;
   };
 

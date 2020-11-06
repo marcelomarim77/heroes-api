@@ -1,4 +1,4 @@
-import { Controller, Param, Get, Delete, Put, Post } from '@nestjs/common';
+import { Controller, Param, Get, Delete, Put, Post, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 
 import { Heroes } from './entities/heroes.entity';
@@ -23,8 +23,14 @@ export class AppController {
   }
 
   @Put('/id/:id')
-  async updateHero(@Param('id') hero: Heroes) {
+  async updateHero(@Param('id') id: number, @Body() hero: Heroes) {
+    hero.id = id;
     return this.appService.updateHero(hero);
+  }
+
+  @Post('/create')
+  async createHero(@Body() hero: Heroes) {
+    return this.appService.createHero(hero);
   }
 
 }
