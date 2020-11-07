@@ -17,6 +17,11 @@ export class AppController {
     return this.appService.getHeroesById(id);
   }
 
+  @Get('/search/:name')
+  async getHeroesByName(@Param('name') name: string) {
+    return this.appService.getHeroesByName(name);
+  }
+
   @Delete('/id/:id')
   async deleteHero(@Param('id') id: number) {
     return this.appService.deleteHero(id);

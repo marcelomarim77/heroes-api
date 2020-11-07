@@ -6,9 +6,7 @@ import { Heroes } from './entities/heroes.entity';
 @Injectable()
 export class AppService {
 
-  constructor(
-    private readonly heroesRepository: HeroesRepository
-  ) {}
+  constructor(private readonly heroesRepository: HeroesRepository) {}
 
   async getAllHeroes() {
     const result = await this.heroesRepository.findAllHeroes();
@@ -17,6 +15,11 @@ export class AppService {
 
   async getHeroesById(id: number) {
     const result = await this.heroesRepository.findHeroesById(id);
+    return result;
+  };
+
+  async getHeroesByName(name: string) {
+    const result = await this.heroesRepository.findHeroesByName(name);
     return result;
   };
 
